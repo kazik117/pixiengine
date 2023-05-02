@@ -1,0 +1,21 @@
+project(tiny-render LANGUAGES C)
+
+add_executable(${PROJECT_NAME} "")
+target_sources(${PROJECT_NAME}
+    PRIVATE
+        "src/tiny_render.c"
+        "src/line.h"
+        "src/line.c"
+        "src/utils.h"
+)
+target_link_libraries(${PROJECT_NAME} PRIVATE sr)
+
+add_executable(${PROJECT_NAME}-bench "")
+target_sources(${PROJECT_NAME}-bench
+    PRIVATE
+        "src/benchmark.c"
+        "src/line.h"
+        "src/line.c"
+        "src/utils.h"
+)
+target_link_libraries(${PROJECT_NAME}-bench PRIVATE sr)
