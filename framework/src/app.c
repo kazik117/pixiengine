@@ -105,9 +105,11 @@ void* app_engine(void* input) {
             fpsTime = 0;
         }
     #ifdef PROFILER_ENABLED
-        repeat++;
-        if (repeat >= app->args.benchmark_repeat_count) {
-            break;
+        if (app->args.benchmark_repeat_count > 0) {
+            repeat++;
+            if (repeat >= app->args.benchmark_repeat_count) {
+                break;
+            }
         }
     #endif
     }

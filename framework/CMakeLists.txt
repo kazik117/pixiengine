@@ -10,6 +10,7 @@ target_sources(${PROJECT_NAME}
     PRIVATE
         "src/app_private.h"
         "src/app.c"
+        "src/pixel.c"
         "src/platform_private.h"
         "src/platform.c"
         "src/sprite_private.h"

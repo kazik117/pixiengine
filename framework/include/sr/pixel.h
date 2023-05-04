@@ -14,9 +14,11 @@ struct sr_pixel
             uint8_t b;
             uint8_t a;
         };
-        
+
     };
 };
+
+extern const struct sr_pixel sr_default_pixel;
 
 
 #endif

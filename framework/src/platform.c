@@ -100,5 +100,5 @@ void window_renderer_draw(sr_app_t app) {
 
 void window_renderer_release(sr_app_t app) {
     if (!app) return;
-    glDeleteBuffers(1, (GLuint*)app->buffer);
+    glDeleteTextures(1, (GLuint*)app->buffer);
 }

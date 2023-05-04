@@ -7,7 +7,7 @@ sr_sprite sr_sprite_create(uint32_t width, uint32_t height) {
     if (width <= 0 || height <= 0) {
         return NULL;
     }
-    sr_sprite sprite = calloc(1, sizeof(sr_sprite));
+    sr_sprite sprite = malloc(sizeof(struct sr_sprite_p));
     sprite->width = width;
     sprite->height = height;
     sprite->data = malloc(width * height * sizeof(struct sr_pixel));
@@ -18,11 +18,11 @@ sr_sprite sr_sprite_create(uint32_t width, uint32_t height) {
 }
 
 struct sr_pixel sr_sprite_get_pixel(sr_sprite sprite, uint32_t x, uint32_t y) {
-    if (!sprite) return (struct sr_pixel) {};
+    if (!sprite) return sr_default_pixel;
     if (x >= 0 && x < sprite->width && y >=0 && y < sprite->height) {
         return sprite->data[y * sprite->width + x];
     }
-    return (struct sr_pixel) {};
+    return sr_default_pixel;
 }
 
 void sr_sprite_set_pixel(sr_sprite sprite, uint32_t x, uint32_t y, struct sr_pixel pixel) {
@@ -41,6 +41,7 @@ struct sr_pixel* sr_sprite_get_data(sr_sprite sprite) {
 
 void sr_sprite_destroy(sr_sprite sprite) {
     if (!sprite) return;
-    free(sprite->data);
+    if (sprite->data)
+        free(sprite->data);
     free(sprite);
 }

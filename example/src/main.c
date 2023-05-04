@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-bool on_user_create();
+bool on_user_create(sr_app_t);
 bool on_user_update(sr_app_t, double);
 
 int main() {
@@ -18,7 +18,7 @@ int main() {
     return 0;
 }
 
-bool on_user_create() {
+bool on_user_create(sr_app_t app) {
     srand(time(NULL));
     return true;
 }
