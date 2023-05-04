@@ -10,6 +10,9 @@
 
 sr_app_t sr_app_create(struct sr_app_args *args) {
     sr_app_t result = calloc(1, sizeof(struct sr_app_p));
+    if (result == NULL) {
+        return NULL;
+    }
     result->args = *args;
     return result;
 }
@@ -21,6 +24,9 @@ sr_error_t sr_app_window(sr_app_t app, uint16_t width, uint16_t height, uint16_t
     app->pixel_w = pixel_width;
     app->pixel_h = pixel_height;
     app->draw_target = sr_sprite_create(width, height);
+    if (!app->draw_target) {
+        return E_INIT;
+    }
     return E_OK;
 }
 
