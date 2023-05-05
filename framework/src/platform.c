@@ -34,8 +34,10 @@ sr_error_t window_create(sr_app_t app) {
 
 void window_destroy(sr_app_t app) {
     if (!app) return;
-    glfwSetWindowCloseCallback(app->window, NULL);
-    glfwDestroyWindow(app->window);
+	if (app->window) {
+		glfwSetWindowCloseCallback(app->window, NULL);
+		glfwDestroyWindow(app->window);
+	}
     glfwTerminate();
     glfwSetErrorCallback(NULL);
     app->window = NULL;

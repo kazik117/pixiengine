@@ -7,10 +7,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#ifndef NDEBUG
-#define PROFILER_ENABLED
-#endif
-
 typedef struct sr_app_p* sr_app_t;
 
 struct sr_app_args
@@ -19,10 +15,6 @@ struct sr_app_args
     bool (*on_create)(sr_app_t);
     bool (*on_update)(sr_app_t,double);
     bool (*on_destroy)(sr_app_t);
-#ifdef PROFILER_ENABLED
-    bool is_benchmark;
-    uint32_t benchmark_repeat_count;
-#endif
 };
 
 sr_app_t sr_app_create(struct sr_app_args *args);

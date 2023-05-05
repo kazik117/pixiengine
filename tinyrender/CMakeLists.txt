@@ -19,3 +19,6 @@ target_sources(${PROJECT_NAME}-bench
         "src/utils.h"
 )
 target_link_libraries(${PROJECT_NAME}-bench PRIVATE sr)
+target_compile_options(${PROJECT_NAME}-bench PRIVATE -pg)
+target_link_options(${PROJECT_NAME}-bench PRIVATE -pg)
+

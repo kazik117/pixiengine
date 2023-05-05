@@ -86,9 +86,6 @@ void* app_engine(void* input) {
     snprintf(title, titleLength, "Simple Renderer :: %s - %3.2f FPS", app->args.name, 0.f);
     window_set_title(app, title);
 
-#ifdef PROFILER_ENABLED
-    uint32_t repeat = 0;
-#endif
     //TODO: Implement benchmarking to max iterations
     while (app->atomActive) {
         window_poll_events(app);
@@ -110,14 +107,6 @@ void* app_engine(void* input) {
             window_set_title(app, title);
             fpsTime = 0;
         }
-    #ifdef PROFILER_ENABLED
-        if (app->args.benchmark_repeat_count > 0) {
-            repeat++;
-            if (repeat >= app->args.benchmark_repeat_count) {
-                break;
-            }
-        }
-    #endif
     }
 
     window_renderer_release(app);
