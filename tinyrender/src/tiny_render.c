@@ -17,7 +17,7 @@ bool on_update(sr_app_t app, double elapsedTime);
 int main() {
     struct sr_app_args params = { "Tiny renderer", on_create, on_update };
     sr_app_t app = sr_app_create(&params);
-    if (sr_app_window(app, 100, 100, 4, 4) == E_OK) {
+    if (sr_app_canvas(app, 100, 100, 4, 4) == E_OK) {
         sr_app_start(app);
     }
     sr_app_destroy(app);

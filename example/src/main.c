@@ -11,7 +11,7 @@ bool on_user_update(sr_app_t, double);
 int main() {
     struct sr_app_args args = { "SAMPLE Application", on_user_create, on_user_update };
     sr_app_t app = sr_app_create(&args);
-    if (sr_app_window(app, 1280, 720, 1, 1) == E_OK) {
+    if (sr_app_canvas(app, 1280, 720, 1, 1) == E_OK) {
         sr_app_start(app);
     }
     sr_app_destroy(app);

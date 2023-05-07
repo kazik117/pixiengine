@@ -20,7 +20,7 @@ struct sr_app_args
 sr_app_t sr_app_create(struct sr_app_args *args);
 void sr_app_destroy(sr_app_t app);
 
-sr_error_t sr_app_window(sr_app_t app, uint16_t width, uint16_t height, uint16_t pixel_width, uint16_t pixel_height);
+sr_error_t sr_app_canvas(sr_app_t app, uint16_t width, uint16_t height, uint16_t pixel_width, uint16_t pixel_height);
 sr_error_t sr_app_start(sr_app_t app);
 
 void sr_app_draw(sr_app_t app, uint16_t x, uint16_t y, struct sr_pixel color);

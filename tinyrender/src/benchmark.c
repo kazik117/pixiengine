@@ -22,7 +22,7 @@ int main() {
     return 0;
 }
 
-bool on_update(sr_app_t app, double) {
+bool on_update(sr_app_t app, double time) {
 	line(14, 21, 81, 41, app, white);
 	line(20, 13, 40, 80, app, red);
 	line(80, 40, 13, 20, app, green);

@@ -22,4 +22,7 @@ target_include_directories(${PROJECT_NAME}
         $<INSTALL_INTERFACE:include>
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE OpenGL::GL glfw)
-target_compile_definitions(${PROJECT_NAME} PRIVATE GL_SILENCE_DEPRECATION)
+
+if(APPLE)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE GL_SILENCE_DEPRECATION)
+endif()

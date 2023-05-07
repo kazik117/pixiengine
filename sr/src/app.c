@@ -17,7 +17,7 @@ sr_app_t sr_app_create(struct sr_app_args *args) {
     return result;
 }
 
-sr_error_t sr_app_window(sr_app_t app, uint16_t width, uint16_t height, uint16_t pixel_width, uint16_t pixel_height) {
+sr_error_t sr_app_canvas(sr_app_t app, uint16_t width, uint16_t height, uint16_t pixel_width, uint16_t pixel_height) {
     if (!app) return E_BADPTR;
     app->width = width;
     app->height = height;
