@@ -1,5 +1,8 @@
 #ifndef _app_h_3de41581409849e9be370ea5e2a78b04_
 #define _app_h_3de41581409849e9be370ea5e2a78b04_
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <sr/pixel.h>
 #include <sr/error.h>
@@ -28,4 +31,7 @@ void sr_app_draw(sr_app_t app, uint16_t x, uint16_t y, struct sr_pixel color);
 uint32_t sr_app_width(sr_app_t app);
 uint32_t sr_app_height(sr_app_t app);
 
+#ifdef __cplusplus
+}
+#endif
 #endif
